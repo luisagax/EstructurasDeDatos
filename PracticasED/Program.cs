@@ -9,7 +9,7 @@ namespace PracticasED
     {
         static void Main(string[] args)
         {
-            Arreglo3();
+            Arreglo5();
             #region PARCIAL I
             void Arreglo1()
             {
@@ -59,6 +59,50 @@ namespace PracticasED
                 Console.Clear();
                 for (int x = 0; x < S.Length; x++)
                     Console.WriteLine("Los alumnos son: {0}", S[x]);
+                Console.ReadLine();
+            }
+            void Arreglo4()
+            {
+                string[] ListaCompras = new string[5];
+                string Articulo = "";
+                int cons = 1;
+                Console.WriteLine("Ingresa los articulos a la lista:");
+                for (int i = 0; i < ListaCompras.Length; i++)
+                {
+                    Console.WriteLine("Articulo #{0}", cons);
+                    Articulo = Console.ReadLine();
+                    ListaCompras[i] = Articulo;
+                    cons++;
+                }
+                Console.Clear();
+                for (int o = 0; o < ListaCompras.Length; o++)
+                    Console.WriteLine(ListaCompras[o]);
+                Console.Read();
+            }
+            void Arreglo5()
+            {
+                decimal[] a1 = new decimal[5];
+                decimal[] a2 = new decimal[5];
+                decimal res = 0;
+                Console.WriteLine("-- Suma de números --");
+                for(int i = 0; i < a1.Length && i < a2.Length; i++)
+                {
+                    Console.WriteLine("Vuelta #{0}", i);
+                    //Arreglo 1
+                    Console.WriteLine("Ingresa el valor del #1: ");
+                    res = decimal.Parse(Console.ReadLine());
+                    a1[i] = res;
+                    //Arreglo 2
+                    Console.WriteLine("Ingresa el valor del #2: ");
+                    res = decimal.Parse(Console.ReadLine());
+                    a2[i] = res;
+                    Console.Clear();
+                }
+                for(int i = 0; i < a1.Length && i < a2.Length; i++)
+                {
+                    decimal suma = a1[i] + a2[i];
+                    Console.WriteLine("{0} + {1} = {2}",a1[i], a2[i], suma);
+                }
                 Console.ReadLine();
             }
             #endregion
