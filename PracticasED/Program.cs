@@ -83,7 +83,9 @@ namespace PracticasED
             {
                 decimal[] a1 = new decimal[5];
                 decimal[] a2 = new decimal[5];
+                decimal[] resultado = new decimal[5];
                 decimal res = 0;
+                string respuesta = "";
                 Console.WriteLine("-- Suma de números --");
                 for(int i = 0; i < a1.Length && i < a2.Length; i++)
                 {
@@ -98,11 +100,46 @@ namespace PracticasED
                     a2[i] = res;
                     Console.Clear();
                 }
-                for(int i = 0; i < a1.Length && i < a2.Length; i++)
+                void sumatoria(decimal[] Ar1, decimal[] Ar2)
                 {
-                    decimal suma = a1[i] + a2[i];
-                    Console.WriteLine("{0} + {1} = {2}",a1[i], a2[i], suma);
+                    int cons = 1;
+                    for (int i = 0; i < Ar1.Length && i < Ar2.Length; i++)
+                    {
+                        decimal suma = Ar1[i] + Ar2[i];
+                        resultado[i] = suma;
+                        Console.WriteLine("{0}. {1} + {2} = {3}",cons, Ar1[i], Ar2[i], resultado[i]);
+                        cons++;
+                    }
                 }
+                sumatoria(a1, a2);
+                decimal[] modificararreglos(decimal[] m, int index)
+                {
+                    Console.WriteLine("Ingrese la cantidad: ");
+                    res = decimal.Parse(Console.ReadLine());
+                    m[index] = res;
+                    return m;
+                }
+                Console.WriteLine("Modificar cantidades. \n 1 = Si / 2 = No");
+                respuesta = Console.ReadLine();
+                if (respuesta == "1")
+                {
+                    Console.WriteLine("¿Qué dato quiere modificar?");
+                    res = decimal.Parse(Console.ReadLine());
+                    int posi = Array.IndexOf(a1, res);
+                    int pos = Array.IndexOf(a2, res);
+                    Console.Clear();
+                    if (posi > -1)
+                    {
+                        a1 = modificararreglos(a1, posi);
+                        sumatoria(a1, a2);
+                        
+                    }
+                    if(pos > -1)
+                    {
+                        sumatoria(a1, modificararreglos(a2, pos));
+                    }
+                }
+
                 Console.ReadLine();
             }
             #endregion
