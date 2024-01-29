@@ -87,6 +87,7 @@ namespace PracticasED
                 decimal res = 0;
                 string respuesta = "";
                 Console.WriteLine("-- Suma de números --");
+                //INSERTAR DATOS
                 for(int i = 0; i < a1.Length && i < a2.Length; i++)
                 {
                     Console.WriteLine("Vuelta #{0}", i);
@@ -112,6 +113,7 @@ namespace PracticasED
                     }
                 }
                 sumatoria(a1, a2);
+                //MODIFICA Y BUSCA DATOS
                 decimal[] modificararreglos(decimal[] m, int index)
                 {
                     Console.WriteLine("Ingrese la cantidad: ");
@@ -132,14 +134,20 @@ namespace PracticasED
                     {
                         a1 = modificararreglos(a1, posi);
                         sumatoria(a1, a2);
-                        
                     }
-                    if(pos > -1)
+                    if (pos > -1)
                     {
                         sumatoria(a1, modificararreglos(a2, pos));
                     }
                 }
-
+                else
+                    eliminararreglo();
+                //ELIMINAR
+                void eliminararreglo()
+                {
+                    Array.Clear(a1, 0, 5);
+                    Array.Clear(a2, 0, 5);
+                }
                 Console.ReadLine();
             }
             #endregion
