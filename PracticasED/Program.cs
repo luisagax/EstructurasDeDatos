@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 
 namespace PracticasED
@@ -9,8 +10,8 @@ namespace PracticasED
     {
         static void Main(string[] args)
         {
-            Arreglo5();
             #region PARCIAL I
+            ArregloBidimensional2();
             void Arreglo1()
             {
                 int[] A = new int[5];
@@ -145,10 +146,76 @@ namespace PracticasED
                 //ELIMINAR
                 void eliminararreglo()
                 {
+                    //a1[0] = 0;
+                    //ELIMINAR TODOS LOS DATOS DE UN ARREGLO
                     Array.Clear(a1, 0, 5);
                     Array.Clear(a2, 0, 5);
                 }
                 Console.ReadLine();
+            }
+            void ArregloBidimensional1()
+            {
+                int[,] Arreglo = new int[3, 4];
+                //FILA 0
+                Arreglo[0, 0] = 1; //COLUMNA 0
+                Arreglo[0, 1] = 2; //COLUMNA 1
+                Arreglo[0, 2] = 3; //COLUMNA 2
+                Arreglo[0, 3] = 4; //COLUMNA 3
+                //FILA 1
+                Arreglo[1, 0] = 5;
+                Arreglo[1, 1] = 6;
+                Arreglo[1, 2] = 7;
+                Arreglo[1, 3] = 8;
+                //FILA 2
+                Arreglo[2, 0] = 9;
+                Arreglo[2, 1] = 10;
+                Arreglo[2, 2] = 11;
+                Arreglo[2, 3] = 12;
+
+                for (int i = 0; i < 3; i++)
+                {
+                    for(int x = 0; x < 4; x++)
+                    {
+                        Console.WriteLine(Arreglo[i,x]);
+                    }
+                }
+                Console.Read();
+            }
+            void ArregloBidimensional2()
+            {
+                string[,] Mandado = new string[4, 4];
+
+                Mandado[0, 0] = "Lechuga";
+                Mandado[0, 1] = "Leche";
+                Mandado[0, 2] = "Tomate";
+                Mandado[0, 3] = "Cebolla";
+
+                Mandado[1, 0] = "10";
+                Mandado[1, 1] = "15";
+                Mandado[1, 2] = "20";
+                Mandado[1, 3] = "22";
+
+                Mandado[2, 0] = "2";
+                Mandado[2, 1] = "3";
+                Mandado[2, 2] = "3";
+                Mandado[2, 3] = "3";
+
+                for(int i = 0; i < 4; i++)
+                {
+                    if (i == 0)
+                        Console.WriteLine("--- ARTICULOS ---");
+                    else if (i == 1)
+                        Console.WriteLine("--- PRECIO ---");
+                    else if (i == 2)
+                        Console.WriteLine("--- CANTIDAD ---");
+                    else
+                        Console.WriteLine("--- TOTAL ---");
+                    for (int x = 0; x < 4; x++)
+                    {
+                        Console.WriteLine(Mandado[i, x]);
+                    }
+                }
+                Console.Read();
             }
             #endregion
         }
